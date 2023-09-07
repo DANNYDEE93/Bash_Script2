@@ -2,8 +2,8 @@
 
 #!/bin/bash
 
-# Provide menu to the user to select ssh or scp
-# use case statement to provide commands for each choice
+###### Provide menu to the user to select ssh or scp
+###### Use case statement to provide commands for each choice
 
 echo "Please choose (1 or 2):"
 echo "1) ssh"
@@ -14,15 +14,15 @@ read -p "Enter option to continue: " choice
 
 case "$choice" in
 
-#if ssh is chosen
+###### if ssh is chosen
 
    "1")
         echo "ssh selected"
         read -p "Enter IP_address: " IP
         read -p "Enter username: " User
 
-#ssh into remote server with input credentials
-#user must enter password when prompted
+###### ssh into remote server with input credentials
+###### user must enter password when prompted
 
         ssh "$User@$IP"
         echo "Connected to remote server"
@@ -30,7 +30,7 @@ case "$choice" in
 ;;
 
 
-# if user chooses scp
+###### if user chooses scp
    "2")
         echo "scp selected"
         read -p "Enter remote IP address: " remoteIP
@@ -42,11 +42,11 @@ case "$choice" in
         read -p "Enter path to desitnation file location: " dest_path
 
 
-#if user provides destinaition without file name, use basename to use filename from source_path
+###### if user provides destinaition without file name, use basename to use filename from source_path
 
         destination=$(basename "$source_path")
 
-#if user chooses remote to local
+###### if user chooses remote to local
 
           if [ "$option" == 1 ]; then
 
@@ -64,5 +64,5 @@ case "$choice" in
 
 ;;
 
-#needed to run case function
+###### needed to run case function
 esac
